@@ -1,0 +1,50 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Unit test cache
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.swp
+*.DS_Store
+
+# IDE (VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Environment files (DO NOT PUSH SECRETS)
+*.env
+.env.*
+
+# =====================
+# Docker
+# =====================
+# Docker build cache
+**/docker-compose.override.yml
+**/.dockerignore
+
+# Ignore Docker layers
+.docker/
+docker/*
+
+# =====================
+# System
+# =====================
+Thumbs.db
+monitor/config.yaml

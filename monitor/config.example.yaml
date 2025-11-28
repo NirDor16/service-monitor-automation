@@ -1,0 +1,14 @@
+services:
+  - name: GitHub API
+    url: "https://api.github.com"
+    expected_status: 200
+    timeout: 3
+
+network_checks:
+  - name: Ping Google DNS
+    type: ping
+    host: "8.8.8.8"
+    timeout: 2
+
+alerts:
+  slack_webhook: "https://hooks.slack.com/services/XXX/YYY/ZZZ"
