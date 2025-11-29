@@ -8,19 +8,7 @@ from typing import Any, Dict, List
 import yaml
 from .logger import logger
 from .alert import send_alert
-
-# Path to shared configuration file
-CONFIG_PATH = Path(__file__).with_name("config.yaml")
-
-
-def load_config(path: Path = CONFIG_PATH) -> Dict[str, Any]:
-    """
-    Load YAML configuration and return it as a Python dict.
-    """
-    with path.open("r", encoding="utf-8") as f:
-        data = yaml.safe_load(f)
-
-    return data or {}
+from .config_loader import load_config
 
 
 # ---------- Low-level network check functions ----------

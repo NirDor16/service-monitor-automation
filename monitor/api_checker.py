@@ -6,23 +6,7 @@ import requests
 import yaml
 from .alert import send_alert
 from .logger import logger
-
-# Path to the YAML configuration file
-CONFIG_PATH = Path(__file__).with_name("config.yaml")
-
-
-def load_config(path: Path = CONFIG_PATH) -> Dict[str, Any]:
-    """
-    Load the YAML configuration file and return it as a Python dictionary.
-    """
-    with path.open("r", encoding="utf-8") as f:
-        data = yaml.safe_load(f)
-
-    # If file is empty or missing essential keys, return a basic structure
-    if data is None:
-        data = {"services": []}
-
-    return data
+from .config_loader import load_config
 
 
 def check_service(service_conf: Dict[str, Any]) -> Dict[str, Any]:
@@ -80,15 +64,6 @@ def check_all_services() -> List[Dict[str, Any]]:
         results.append(result)
 
     return results
-
-
-def check_api() -> bool:
-    """
-    Helper function used by tests.
-    Runs all service checks and returns True only if all pass.
-    """
-    results = check_all_services()
-    return all(r["ok"] for r in results)
 
 
 def print_results_table(results):
